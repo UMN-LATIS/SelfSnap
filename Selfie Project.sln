@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selfie Project", "Assembly-CSharp-firstpass.csproj", "{08E28E2B-6592-4964-9590-9A74A65F6713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selfie Project", "Assembly-CSharp.csproj", "{69C86B9C-BB25-A4E0-653C-2FD1430062D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selfie Project", "Assembly-CSharp-Editor-firstpass.csproj", "{5D620105-8018-FEB7-750C-49B58E49E2F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selfie Project", "Assembly-CSharp-Editor.csproj", "{AFD5851D-4A98-1983-77A0-11A4B6D10EF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08E28E2B-6592-4964-9590-9A74A65F6713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E28E2B-6592-4964-9590-9A74A65F6713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E28E2B-6592-4964-9590-9A74A65F6713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E28E2B-6592-4964-9590-9A74A65F6713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C86B9C-BB25-A4E0-653C-2FD1430062D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C86B9C-BB25-A4E0-653C-2FD1430062D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C86B9C-BB25-A4E0-653C-2FD1430062D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C86B9C-BB25-A4E0-653C-2FD1430062D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D620105-8018-FEB7-750C-49B58E49E2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D620105-8018-FEB7-750C-49B58E49E2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D620105-8018-FEB7-750C-49B58E49E2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D620105-8018-FEB7-750C-49B58E49E2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD5851D-4A98-1983-77A0-11A4B6D10EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD5851D-4A98-1983-77A0-11A4B6D10EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD5851D-4A98-1983-77A0-11A4B6D10EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD5851D-4A98-1983-77A0-11A4B6D10EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
