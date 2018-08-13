@@ -11,6 +11,7 @@ using NatShareU;
 public class SelfieHandler : MonoBehaviour {
 
     public RawImage imageTexture;
+    public Texture2D myTexture;
     public string imagePath;
     public string log;
     public string tempFile;
@@ -70,33 +71,29 @@ public class SelfieHandler : MonoBehaviour {
                 rotated = tex;
                 break;
         }
+        tex = null;
+        myTexture = ScaleTexture(rotated, (int)(rotated.width * 0.5), (int)(rotated.height * 0.5));
 
-        imageTexture.texture = rotated;
+        NatShare.Share(myTexture, "We solved the mystery! #riddleMiaThis #mia");
 
-        imageTexture.SizeToParent();
-        imageTexture.gameObject.SetActive(true);
-
-
-        Texture2D myText = imageTexture.texture as Texture2D;
-        NatShare.Share(myText, "We solved the mystery! #riddleMiaThis #mia");
-        //imageTexture.texture = rotated;
-        //byte[] bytes = rotated.EncodeToPNG();
-        //tempFile = Application.persistentDataPath + "/SavedScreen.png";
-        //File.WriteAllBytes(tempFile, bytes);
-
-        //fileData = File.ReadAllBytes(tempFile);
-        //Texture2D finalTex = new Texture2D(2, 2);
-        //finalTex.LoadImage(fileData);
-        //imageTexture.texture = finalTex;
-
-        //imageTexture.texture = Resources.Load (imagePath) as Texture2D;
-        //Debug.Log("Image Dimensions: " + imageTexture.texture.width + " " + imageTexture.texture.height);
-        //imageTexture.SizeToParent();
-        //var parent = imageTexture.transform.parent.GetComponentInParent<RectTransform>();
-        //Debug.Log("Parent Dimensions: " + parent.rect.width + " " + parent.rect.height);
-        //log += "\nImage Saved to gallery, path : " + path + ", orientation : " + orientation;
     }
 
+    private Texture2D ScaleTexture(Texture2D source, int targetWidth, int targetHeight)
+    {
+        Texture2D result = new Texture2D(targetWidth, targetHeight, source.format, false);
+        float incX = (1.0f / (float)targetWidth);
+        float incY = (1.0f / (float)targetHeight);
+        for (int i = 0; i < result.height; ++i)
+        {
+            for (int j = 0; j < result.width; ++j)
+            {
+                Color newColor = source.GetPixelBilinear((float)j / (float)result.width, (float)i / (float)result.height);
+                result.SetPixel(j, i, newColor);
+            }
+        }
+        result.Apply();
+        return result;
+    }
 
 
 
@@ -162,8 +159,8 @@ public class SelfieHandler : MonoBehaviour {
         //_shareSheet.AttachImageAtPath(tempFile);
         //NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
         //NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
-        Texture2D myText = imageTexture.texture as Texture2D;
-        NatShare.Share(myText, "We solved the mystery! #riddleMiaThis #mia");
+        //Texture2D myText = imageTexture.texture as Texture2D;
+        //NatShare.Share(myText, "We solved the mystery! #riddleMiaThis #mia");
 
     }
 
