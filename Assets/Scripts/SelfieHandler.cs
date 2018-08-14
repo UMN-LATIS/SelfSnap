@@ -16,14 +16,20 @@ public class SelfieHandler : MonoBehaviour {
     public string log;
     public string tempFile;
 
+    List<string> messageQueue = new List<string>(); 
+
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        while (messageQueue.Count > 0)
+        {
+            shareSelf();
+            messageQueue.RemoveAt(0);
+        }
 	}
 
     void OnEnable()
@@ -73,8 +79,9 @@ public class SelfieHandler : MonoBehaviour {
         }
         tex = null;
         myTexture = ScaleTexture(rotated, (int)(rotated.width * 0.5), (int)(rotated.height * 0.5));
-
-        NatShare.Share(myTexture, "We solved the mystery! #riddleMiaThis #mia");
+        messageQueue.Add("shareSelfie");
+        Debug.Log("Enqueued");
+        //NatShare.Share(myTexture, "We solved the mystery! #riddleMiaThis #mia");
 
     }
 
@@ -154,13 +161,14 @@ public class SelfieHandler : MonoBehaviour {
     }
 
     public void shareSelf() {
+        Debug.Log("DeEnqueued");
         //SocialShareSheet _shareSheet = new SocialShareSheet();
         //_shareSheet.Text = "We solved the mystery! #riddleMiaThis #mia";
         //_shareSheet.AttachImageAtPath(tempFile);
         //NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
         //NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
         //Texture2D myText = imageTexture.texture as Texture2D;
-        //NatShare.Share(myText, "We solved the mystery! #riddleMiaThis #mia");
+        NatShare.Share(myTexture, "We solved the mystery! #riddleMiaThis #mia");
 
     }
 
